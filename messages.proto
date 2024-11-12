@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package messages;
+option go_package = "github.com/vinihss/telecine/messages";
+
+service MessageService {
+  // Recebe uma mensagem e retorna uma resposta
+  rpc SendMessage (MessageRequest) returns (MessageResponse);
+}
+
+message MessageRequest {
+  string content = 1; // Conteúdo da mensagem
+  string client_id = 2; // ID do cliente para identificação
+}
+
+message MessageResponse {
+  string status = 1; // Status da operação
+}
